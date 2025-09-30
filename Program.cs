@@ -10,20 +10,26 @@ logger.Info("Program started");
 
 // deserialize mario json from file into List<Mario>
 string marioFileName = "mario.json";
-List<Mario> marios = JsonSerializer.Deserialize<List<Mario>>
-(File.ReadAllText(marioFileName))!;
+List<Mario> marios = [];
+// check if file exists
+if (File.Exists(marioFileName))
+{
+    marios = JsonSerializer.Deserialize<List<Mario>>
+    (File.ReadAllText(marioFileName))!;
+    logger.Info($"File deserialized {marioFileName}");
+}
 
 do
 {
-  // display choices to user
-  Console.WriteLine("1) Display Mario Characters");
-  Console.WriteLine("2) Add Mario Character");
-  Console.WriteLine("3) Remove Mario Character");
-  Console.WriteLine("Enter to quit");
+    // display choices to user
+    Console.WriteLine("1) Display Mario Characters");
+    Console.WriteLine("2) Add Mario Character");
+    Console.WriteLine("3) Remove Mario Character");
+    Console.WriteLine("Enter to quit");
 
-  // input selection
-  string? choice = Console.ReadLine();
-  logger.Info("User choice: {Choice}", choice);
+    // input selection
+    string? choice = Console.ReadLine();
+    logger.Info("User choice: {Choice}", choice);
 
     if (choice == "1")
     {
