@@ -50,6 +50,15 @@ do
     else if (choice == "3")
     {
         // Remove Mario Character
+        Console.WriteLine("Enter Id of the Character to remove:");
+        if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+        {
+            logger.Info($"Character Id {Id} entered");
+        }
+        else
+        {
+            logger.Error("Invalid Id");
+        }
     }
     else if (string.IsNullOrEmpty(choice))
     {
