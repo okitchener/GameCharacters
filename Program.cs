@@ -190,8 +190,15 @@ static void ShowDkMenu()
             Console.WriteLine("Enter Id of the Character to remove:");
             if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
             {
-                logger.Info($"Character Id {Id} entered");
-                Dk? character = dks.First(c => c.Id == Id);
+               Dk? character = dks.FirstOrDefault(c => c.Id == Id);
+                if (character == null)
+                {
+                    logger.Error($"Character Id {Id} not found");
+                }
+                else
+                {
+                   logger.Info($"Character Id {Id} found");
+                }
             }
             else
             {
