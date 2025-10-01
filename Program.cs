@@ -32,7 +32,7 @@ do
     }
     else if (choice == "3")
     {
-        // Street Fighter 2 Menu Placeholder
+        ShowSf2Menu();
     }
     else if (string.IsNullOrEmpty(choice))
     {
@@ -216,6 +216,58 @@ static void ShowDkMenu()
             }
         }
         else if (string.IsNullOrEmpty(choice))
+        {
+            break;
+        }
+        else
+        {
+            logger.Info("Invalid choice");
+        }
+    } while (true);
+}
+
+static void ShowSf2Menu()
+{
+    // Create logger instance for this method
+    var logger = LogManager.GetCurrentClassLogger();
+
+    // deserialize sf2 json from file into List<Sf2>
+    string sf2FileName = "sf2.json";
+    List<Sf2> sf2s = [];
+    // check if file exists
+    if (File.Exists(sf2FileName))
+    {
+        sf2s = JsonSerializer.Deserialize<List<Sf2>>
+        (File.ReadAllText(sf2FileName))!;
+        logger.Info($"File deserialized {sf2FileName}");
+    }
+
+    do
+    {
+        Console.WriteLine("\nStreet Fighter 2 Characters Menu");
+        Console.WriteLine("1) Display Street Fighter 2 Characters");
+        Console.WriteLine("2) Add Street Fighter 2 Character");
+        Console.WriteLine("3) Remove Street Fighter 2 Character");
+        Console.WriteLine("Enter to return to main menu");
+
+        //input selection
+        string? choice = Console.ReadLine();
+        logger.Info("User choice: {Choice}", choice);
+
+        if (choice == "1")
+        {
+            //Display Street Fighter 2 Characters
+
+        }
+        else if (choice == "2")
+        {
+            //Add Street Fighter 2 Character
+
+        }
+        else if (choice == "3")
+        {
+            //Remove Street Fighter 2 Character
+        } else if (string.IsNullOrEmpty(choice))
         {
             break;
         }
