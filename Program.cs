@@ -197,7 +197,11 @@ static void ShowDkMenu()
                 }
                 else
                 {
-                   logger.Info($"Character Id {Id} found");
+                    dks.Remove(character);
+                    // serialize list<dkCharacter> to json file
+                    File.WriteAllText(dkFileName,
+                    JsonSerializer.Serialize(dks));
+                    logger.Info($"Character Id {Id} removed");
                 }
             }
             else
