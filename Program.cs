@@ -191,6 +191,7 @@ static void ShowDkMenu()
             if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
             {
                 logger.Info($"Character Id {Id} entered");
+                Dk? character = dks.First(c => c.Id == Id);
             }
             else
             {
