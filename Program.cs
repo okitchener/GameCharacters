@@ -281,6 +281,27 @@ static void ShowSf2Menu()
         else if (choice == "3")
         {
             //Remove Street Fighter 2 Character
+            Console.WriteLine("Enter Id of the Character to remove:");
+            if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+            {
+                Sf2? character = sf2s.FirstOrDefault(c => c.Id == Id);
+                if (character == null)
+                {
+                    logger.Error($"Character Id {Id} not found");
+                }
+                else
+                {
+                    sf2s.Remove(character);
+                    // serialize list<Sf2> to json file
+                    File.WriteAllText(sf2FileName,
+                    JsonSerializer.Serialize(sf2s));
+                    logger.Info($"Character Id {Id} removed");
+                }
+            }
+            else
+            {
+                logger.Error("Invalid Id");
+            }
         }
         else if (string.IsNullOrEmpty(choice))
         {
