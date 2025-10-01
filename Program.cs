@@ -141,8 +141,14 @@ static void ShowDkMenu()
 
     // deserialize dk json from file into List<Dk>
     string dkFileName = "dk.json";
-    List<Dk> dks = JsonSerializer.Deserialize<List<Dk>>
+    List<Dk> dks = [];
+    // check if file exists
+    if (File.Exists(dkFileName))
+    {
+        dks = JsonSerializer.Deserialize<List<Dk>>
         (File.ReadAllText(dkFileName))!;
+        logger.Info($"File deserialized {dkFileName}");
+    }
 
     do
     {
@@ -190,7 +196,7 @@ static void ShowDkMenu()
             Console.WriteLine("Enter Id of the Character to remove:");
             if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
             {
-               Dk? character = dks.FirstOrDefault(c => c.Id == Id);
+                Dk? character = dks.FirstOrDefault(c => c.Id == Id);
                 if (character == null)
                 {
                     logger.Error($"Character Id {Id} not found");
