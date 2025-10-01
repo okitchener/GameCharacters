@@ -178,6 +178,11 @@ static void ShowDkMenu()
             dk.Name = Console.ReadLine();
             Console.WriteLine("Enter Description:");
             dk.Description = Console.ReadLine();
+            // Add Character
+            dks.Add(dk);
+            File.WriteAllText(dkFileName,
+            JsonSerializer.Serialize(dks));
+            logger.Info($"Character added: {dk.Name}");
         }
         else if (choice == "3")
         {
