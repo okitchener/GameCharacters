@@ -143,6 +143,40 @@ static void ShowDkMenu()
     string dkFileName = "dk.json";
     List<Dk> dks = JsonSerializer.Deserialize<List<Dk>>
         (File.ReadAllText(dkFileName))!;
+
+    do
+    {
+        Console.WriteLine("\nDonkey Kong Characters Menu");
+        Console.WriteLine("1) Display Donkey Kong Characters");
+        Console.WriteLine("2) Add Donkey Kong Character");
+        Console.WriteLine("3) Remove Donkey Kong Character");
+        Console.WriteLine("Enter to return to main menu");
+
+        //input selection
+        string? choice = Console.ReadLine();
+        logger.Info("User choice: {Choice}", choice);
+
+        if (choice == "1")
+        {
+            //Display Donkey Kong Characters
+        }
+        else if (choice == "2")
+        {
+            //Add Donkey Kong Character
+        }
+        else if (choice == "3")
+        {
+            //Remove Donkey Kong Character
+        }
+        else if (string.IsNullOrEmpty(choice))
+        {
+            break;
+        }
+        else
+        {
+            logger.Info("Invalid choice");
+        }
+    } while (true);
 }
 
 logger.Info("Program ended");
