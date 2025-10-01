@@ -167,6 +167,10 @@ static void ShowDkMenu()
         else if (choice == "2")
         {
             //Add Donkey Kong Character
+            Dk dk = new()
+            {
+                Id = dks.Count == 0 ? 1 : dks.Max(c => c.Id) + 1
+            };
         }
         else if (choice == "3")
         {
