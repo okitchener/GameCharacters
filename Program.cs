@@ -171,6 +171,13 @@ static void ShowDkMenu()
             {
                 Id = dks.Count == 0 ? 1 : dks.Max(c => c.Id) + 1
             };
+            // Input Character details
+            Console.WriteLine("Enter Species:");
+            dk.Species = Console.ReadLine()!;
+            Console.WriteLine("Enter Name:");
+            dk.Name = Console.ReadLine();
+            Console.WriteLine("Enter Description:");
+            dk.Description = Console.ReadLine();
         }
         else if (choice == "3")
         {
