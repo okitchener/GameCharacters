@@ -266,7 +266,17 @@ static void ShowSf2Menu()
         else if (choice == "2")
         {
             //Add Street Fighter 2 Character
-
+            Sf2 sf2 = new()
+            {
+                Id = sf2s.Count == 0 ? 1 : sf2s.Max(c => c.Id) + 1
+            };
+            // Input Character details
+            InputCharacter(sf2);
+            // Add Character
+            sf2s.Add(sf2);
+            File.WriteAllText(sf2FileName,
+            JsonSerializer.Serialize(sf2s));
+            logger.Info($"Character added: {sf2.Name}");
         }
         else if (choice == "3")
         {
