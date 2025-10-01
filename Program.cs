@@ -159,6 +159,10 @@ static void ShowDkMenu()
         if (choice == "1")
         {
             //Display Donkey Kong Characters
+            foreach (var c in dks)
+            {
+                Console.WriteLine(c.Display());
+            }
         }
         else if (choice == "2")
         {
