@@ -28,7 +28,7 @@ do
     }
     else if (choice == "2")
     {
-        // Donkey Kong Menu Placeholder
+        ShowDkMenu();
     }
     else if (choice == "3")
     {
@@ -133,6 +133,18 @@ static void ShowMarioMenu()
         }
     } while (true);
 }
+
+static void ShowDkMenu()
+{
+    // Create logger instance for this method
+    var logger = LogManager.GetCurrentClassLogger();
+
+    // deserialize dk json from file into List<Dk>
+    string dkFileName = "dk.json";
+    List<Dk> dks = JsonSerializer.Deserialize<List<Dk>>
+        (File.ReadAllText(dkFileName))!;
+}
+
 logger.Info("Program ended");
 
 static void InputCharacter(Character character)
