@@ -257,6 +257,10 @@ static void ShowSf2Menu()
         if (choice == "1")
         {
             //Display Street Fighter 2 Characters
+            foreach (var c in sf2s)
+            {
+                Console.WriteLine(c.Display());
+            }
 
         }
         else if (choice == "2")
@@ -267,7 +271,8 @@ static void ShowSf2Menu()
         else if (choice == "3")
         {
             //Remove Street Fighter 2 Character
-        } else if (string.IsNullOrEmpty(choice))
+        }
+        else if (string.IsNullOrEmpty(choice))
         {
             break;
         }
