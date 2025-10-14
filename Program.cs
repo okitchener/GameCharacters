@@ -179,6 +179,7 @@ static void ShowDkMenu()
         Console.WriteLine("1) Display Donkey Kong Characters");
         Console.WriteLine("2) Add Donkey Kong Character");
         Console.WriteLine("3) Remove Donkey Kong Character");
+        Console.WriteLine("4) Edit Donkey Kong Character");
         Console.WriteLine("Enter to return to main menu");
 
         //input selection
@@ -237,6 +238,10 @@ static void ShowDkMenu()
             {
                 logger.Error("Invalid Id");
             }
+        }
+        else if (choice == "4")
+        {
+            //future edit dk character
         }
         else if (string.IsNullOrEmpty(choice))
         {
