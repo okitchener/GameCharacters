@@ -294,6 +294,7 @@ static void ShowSf2Menu()
         Console.WriteLine("1) Display Street Fighter 2 Characters");
         Console.WriteLine("2) Add Street Fighter 2 Character");
         Console.WriteLine("3) Remove Street Fighter 2 Character");
+        Console.WriteLine("4) Edit Street Fighter 2 Character");
         Console.WriteLine("Enter to return to main menu");
 
         //input selection
@@ -348,6 +349,10 @@ static void ShowSf2Menu()
             {
                 logger.Error("Invalid Id");
             }
+        }
+        else if (choice == "4")
+        {
+           //Future Edit Street Fighter 2 Character here
         }
         else if (string.IsNullOrEmpty(choice))
         {
