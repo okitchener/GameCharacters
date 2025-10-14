@@ -138,6 +138,11 @@ static void ShowMarioMenu()
                 else
                 {
                    // Input Character details
+                     InputCharacter(character);
+                    // serialize list<marioCharacter> to json file
+                    File.WriteAllText(marioFileName,
+                    JsonSerializer.Serialize(marios));
+                    logger.Info($"Character Id {Id} edited");
                 }
             }
         }
