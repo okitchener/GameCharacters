@@ -252,7 +252,12 @@ static void ShowDkMenu()
                 }
                 else
                 {
-                 //future edit dk character here
+                     // Input Character details
+                        InputCharacter(character);
+                      // serialize list<dkCharacter> to json file
+                      File.WriteAllText(dkFileName,
+                      JsonSerializer.Serialize(dks));
+                      logger.Info($"Character Id {Id} edited");
                 }
             }
         }
