@@ -69,6 +69,7 @@ static void ShowMarioMenu()
         Console.WriteLine("1) Display Mario Characters");
         Console.WriteLine("2) Add Mario Character");
         Console.WriteLine("3) Remove Mario Character");
+        Console.WriteLine("4) Edit Mario Character");
         Console.WriteLine("Enter to return to main menu");
         Console.Write("Select an option: ");
 
@@ -122,6 +123,10 @@ static void ShowMarioMenu()
             {
                 logger.Error("Invalid Id");
             }
+        }
+        else if (choice == "4")
+        {
+            //Future edit mario character
         }
         else if (string.IsNullOrEmpty(choice))
         {
