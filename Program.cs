@@ -241,7 +241,20 @@ static void ShowDkMenu()
         }
         else if (choice == "4")
         {
-            //future edit dk character
+            //edit Donkey Kong Character
+            Console.WriteLine("Enter Id of the Character to edit:");
+            if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+            {
+                Dk? character = dks.FirstOrDefault(c => c.Id == Id);
+                if (character == null)
+                {
+                    logger.Error($"Character Id {Id} not found");
+                }
+                else
+                {
+                 //future edit dk character here
+                }
+            }
         }
         else if (string.IsNullOrEmpty(choice))
         {
