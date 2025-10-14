@@ -352,7 +352,19 @@ static void ShowSf2Menu()
         }
         else if (choice == "4")
         {
-           //Future Edit Street Fighter 2 Character here
+        //edit Street Fighter 2 Character
+        Console.WriteLine("Enter Id of the Character to edit:");
+        if (UInt32.Tryparse.(Console.ReadLine(), out UInt32 Id))
+        {
+            Sf2? character = sf2s.FirstOrDefault(c => c.Id == Id);
+            if (character == null)
+            {
+                logger.Error($"Character Id {Id} not found");
+            }
+            else
+            {
+             //Future Edit character here
+            }
         }
         else if (string.IsNullOrEmpty(choice))
         {
