@@ -126,7 +126,20 @@ static void ShowMarioMenu()
         }
         else if (choice == "4")
         {
-            //Future edit mario character
+            //Edit Mario Character
+            Console.WriteLine("Enter Id of the Character to edit:");
+            if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
+            {
+                Mario? character = marios.FirstOrDefault(c => c.Id == Id);
+                if (character == null)
+                {
+                    logger.Error($"Character Id {Id} not found");
+                }
+                else
+                {
+                   // Input Character details
+                }
+            }
         }
         else if (string.IsNullOrEmpty(choice))
         {
