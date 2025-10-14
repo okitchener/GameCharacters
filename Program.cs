@@ -354,7 +354,7 @@ static void ShowSf2Menu()
         {
         //edit Street Fighter 2 Character
         Console.WriteLine("Enter Id of the Character to edit:");
-        if (UInt32.Tryparse.(Console.ReadLine(), out UInt32 Id))
+        if (UInt32.TryParse(Console.ReadLine(), out UInt32 Id))
         {
             Sf2? character = sf2s.FirstOrDefault(c => c.Id == Id);
             if (character == null)
@@ -363,9 +363,14 @@ static void ShowSf2Menu()
             }
             else
             {
-             //Future Edit character here
+                    // Input Character details
+                        InputCharacter(character);
+                    // serialize list<Sf2> to json file
+                    File.WriteAllText(sf2FileName,
+                    JsonSerializer.Serialize(sf2s));
+                    logger.Info($"Character Id {Id} edited");
             }
-        }
+        }}
         else if (string.IsNullOrEmpty(choice))
         {
             break;
